@@ -33,7 +33,7 @@
 
       function mostrarInformación(data) {
         $('#mensajeFinal').empty().append("<table><tr><th>AMIE</th><th>Institución</th></tr>");
-        for (var i = 0; i < data.rows.length; i++) {
+        for (var i = 1; i < data.rows.length; i++) {
           var amie = data.rows[i].doc.AMIE;
           var institucion = data.rows[i].doc.Nombre_Institucion;
           $('#mensajeFinal').append("<tr><td>" + amie + "</td><td>" + institucion + "</td></tr>");
@@ -70,7 +70,7 @@
 
 
       $("#buscarPorLímite").click(function () {
-        var limite = parseInt($("#limiteInput").val());
+        var limite = parseInt($("#limiteInput").val())+1;
         $.ajax({
           dataType: 'json',
           url: "http://127.0.0.1:5984/instituciones/_all_docs?include_docs=true&limit=" + limite
